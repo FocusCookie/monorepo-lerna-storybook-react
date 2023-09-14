@@ -2,16 +2,20 @@
   "name": "@lueddy/ui",
   "version": "0.0.0",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
-  "keywords": [],
+  "keywords": [
+    "ui",
+    "components"
+  ],
   "author": "FocusCookie <s.lueddemann@mailbox.org>",
   "license": "ISC",
   "main": "lib/ui.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "dist": "dist",
+    "src": "src"
   },
   "files": [
-    "lib"
+    "src",
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -21,7 +25,8 @@
     "url": "git+https://github.com/FocusCookie/monorepo-lerna-storybook-react.git"
   },
   "scripts": {
-    "test": "node ./__tests__/@lueddy/ui.test.js"
+    "postinstall": "npm run build",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --color --progress"
   },
   "bugs": {
     "url": "https://github.com/FocusCookie/monorepo-lerna-storybook-react/issues"
@@ -33,6 +38,9 @@
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "styled-components": "5.2.1",
-    "typescript": "4.7.3"
+    "ts-loader": "9.3.1",
+    "typescript": "4.7.3",
+    "webpack": "5.84.1",
+    "webpack-cli": "5.1.1"
   }
 }
