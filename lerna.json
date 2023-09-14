@@ -1,10 +1,22 @@
 {
-  "command": {
-    "init": {
-      "exact": true
-    }
-  },
-  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "packages": ["packages/*"],
+  "version": "independent",
   "useWorkspaces": true,
-  "version": "0.0.0"
+  "command": {
+    "version": {
+      "message": "[skip ci] lerna publish"
+    },
+    "publish": {
+      "allowBranch": [
+        "master",
+        "feature/*",
+        "releases/*",
+        "release/*",
+        "features/*",
+        "feature/*",
+        "hotfix/*",
+        "bugfix/*"
+      ]
+    }
+  }
 }
