@@ -1,0 +1,64 @@
+{
+  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+  "plugins": ["@typescript-eslint", "jsdoc", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module", // Allows for the use of imports
+    "ecmaFeatures": {
+      "jsx": true // Allows for the parsing of JSX
+    }
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended", // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+    "prettier/@typescript-eslint", // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "max-len": ["warn", {
+      "code": 80,
+      "tabWidth": 2,
+      "ignoreStrings": true,
+      "ignoreUrls": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true,
+      "ignoreComments":  true
+    }],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "always-multiline"
+    }],
+    "no-console": ["error", { "allow": ["info","error","warn","groupCollapsed","groupEnd","table","trace"] }],
+    "no-debugger": "error",
+    "object-shorthand": ["error", "properties"],
+    "spaced-comment": ["error", "always"],
+    "capitalized-comments": ["warn", "always", {
+      "ignoreConsecutiveComments": true,
+      "ignoreInlineComments": true
+    }],
+    "no-invalid-this": "off",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    "no-fallthrough": "error",
+    "no-trailing-spaces": ["error", { "ignoreComments": true }],
+    "quote-props": ["error", "as-needed"],
+    "arrow-body-style": ["warn", "as-needed"],
+    "arrow-parens": ["error", "as-needed"],
+    "no-sequences": "error",
+    "prefer-template": "error",
+    "jsdoc/check-alignment": "off",
+    "jsdoc/require-param-name": "off",
+    "jsdoc/require-param-description": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  }
+}

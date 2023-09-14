@@ -1,0 +1,17 @@
+node_modules
+
+*.config.js
+*.html
+
+packages/admin-panel
+
+packages/frontend/server
+
+packages/*/internals
+packages/*/dist
+packages/*/app/i18n/translations
+packages/*/app/vendor
+
+packages/*/jest.config.js
+packages/*/babel.config.js
+
