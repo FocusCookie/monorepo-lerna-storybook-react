@@ -2,10 +2,9 @@
 
 > TODO: description
 
-## Usage
+## Usage in other packages
 
 ```
-const ui = require('@lueddy/ui');
+const {Button} = require('@lueddy/ui');
 
-// TODO: DEMONSTRATE API
 ```

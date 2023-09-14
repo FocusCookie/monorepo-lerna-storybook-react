@@ -28,9 +28,8 @@
   },
   "homepage": "https://github.com/FocusCookie/monorepo-lerna-storybook-react#readme",
   "dependencies": {
-    "@lueddy/ui": "^0.0.0",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
+    "@types/react": "16.8.25",
+    "@types/react-dom": "16.8.5",
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "styled-components": "5.2.1",
@@ -38,5 +37,19 @@
     "typescript": "4.7.3",
     "webpack": "5.84.1",
     "webpack-cli": "5.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.22.17",
+    "@storybook/addon-actions": "6.5.9",
+    "@storybook/addon-console": "1.2.2",
+    "@storybook/addon-docs": "6.5.9",
+    "@storybook/addon-essentials": "6.5.9",
+    "@storybook/addon-interactions": "6.5.9",
+    "@storybook/addon-links": "6.5.9",
+    "@storybook/builder-webpack5": "6.5.9",
+    "@storybook/manager-webpack5": "6.5.9",
+    "@storybook/react": "6.5.9",
+    "@storybook/testing-library": "^0.2.0",
+    "babel-loader": "8.3.0"
   }
 }
