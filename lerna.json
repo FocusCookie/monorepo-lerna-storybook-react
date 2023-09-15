@@ -1,0 +1,21 @@
+{
+  "packages": ["packages/*"],
+  "version": "independent",
+  "command": {
+    "version": {
+      "message": "[skip ci] lerna publish"
+    },
+    "publish": {
+      "allowBranch": [
+        "master",
+        "feature/*",
+        "releases/*",
+        "release/*",
+        "features/*",
+        "feature/*",
+        "hotfix/*",
+        "bugfix/*"
+      ]
+    }
+  }
+}
