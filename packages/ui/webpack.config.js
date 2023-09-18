@@ -18,7 +18,7 @@ module.exports = {
   },
   output: {
     filename: "index.js",
-    library: "formCuiontrols",
+    library: "ui",
     libraryTarget: "umd",
     path: path.resolve(__dirname, "dist"),
   },
