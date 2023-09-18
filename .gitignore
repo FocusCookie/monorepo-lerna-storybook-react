@@ -326,6 +326,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# snapshot testing
+.__image_snapshots__/
+__image_snapshots__/
+
 ### macOS template
 # General
 

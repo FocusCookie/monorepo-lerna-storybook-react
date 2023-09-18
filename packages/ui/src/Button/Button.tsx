@@ -24,7 +24,7 @@ const Button = ({
       type="button"
       data-testid="button"
       style={{
-        backgroundColor: variant === "primary" ? "hotpink" : "skyblue",
+        backgroundColor: variant === "primary" ? "yellow" : "skyblue",
         padding: size === "base" ? "0.5rem 0.25rem" : "1rem 0.5rem",
         fontSize: size === "base" ? "1rem" : "1.5rem",
       }}
