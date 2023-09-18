@@ -26,7 +26,6 @@
   },
   "scripts": {
     "test": "npm run build-storybook && jest",
-    "postinstall": "npm run build",
     "build": "NODE_ENV=production webpack --config webpack.config.js --color --progress",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
