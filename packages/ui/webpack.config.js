@@ -8,7 +8,11 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+          /\.stories\.tsx$/, // Exclude storybook stories
+          /\.test\.ts$/, // Exclude test files
+        ],
       },
     ],
   },
