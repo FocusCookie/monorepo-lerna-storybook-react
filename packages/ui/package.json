@@ -1,6 +1,6 @@
 {
   "name": "@lueddy/ui",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [
     "ui",
@@ -8,17 +8,14 @@
   ],
   "author": "FocusCookie <s.lueddemann@mailbox.org>",
   "license": "ISC",
-  "main": "lib/ui.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "dist": "dist",
     "src": "src"
-  },
-  "files": [
-    "src",
-    "dist"
-  ],
-  "publishConfig": {
-    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -58,7 +55,7 @@
     "@storybook/builder-webpack5": "6.5.9",
     "@storybook/manager-webpack5": "6.5.9",
     "@storybook/react": "6.5.9",
-    "@storybook/testing-library": "^0.2.0",
+    "@storybook/testing-library": "0.2.0",
     "@types/jest-image-snapshot": "6.2.1",
     "babel-loader": "8.3.0",
     "babel-plugin-dynamic-import-node": "2.3.3",

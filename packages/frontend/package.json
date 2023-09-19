@@ -21,13 +21,16 @@
     "url": "git+https://github.com/FocusCookie/monorepo-lerna-storybook-react.git"
   },
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "bugs": {
     "url": "https://github.com/FocusCookie/monorepo-lerna-storybook-react/issues"
   },
   "homepage": "https://github.com/FocusCookie/monorepo-lerna-storybook-react#readme",
   "dependencies": {
+    "@lueddy/ui": "^0.0.2",
     "@types/react": "16.14.0",
     "@types/react-dom": "16.9.8",
     "html-webpack-plugin": "5.3.1",

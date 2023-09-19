@@ -1,6 +1,6 @@
 import initStoryshots from "@storybook/addon-storyshots";
 import { imageSnapshot } from "@storybook/addon-storyshots-puppeteer";
-import { MatchImageSnapshotOptions } from "jest-image-snapshot";
+// import { MatchImageSnapshotOptions } from "jest-image-snapshot";
 var path = require("path");
 const STATIC_STORYBOOK_PATH = path.resolve(__dirname, "../storybook-static");
 
@@ -8,12 +8,12 @@ const STATIC_STORYBOOK_PATH = path.resolve(__dirname, "../storybook-static");
  * Fore more finecontrol over the thresholds
  * check the MatchImageSnapshotOptions for details
  */
-const getMatchOptions = (): MatchImageSnapshotOptions => {
+/* const getMatchOptions = (): MatchImageSnapshotOptions => {
   return {
     failureThreshold: 1,
     failureThresholdType: "pixel",
   };
-};
+}; */
 
 const beforeScreenshot = () => {
   return new Promise<void>((resolve) =>
