@@ -1,3 +1,3 @@
-// imports
+import Button from "./Button/Button";
 
-export {};
+export { Button };
