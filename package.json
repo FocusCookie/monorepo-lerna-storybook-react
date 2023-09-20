@@ -1,4 +1,5 @@
 {
+  "scripts": {"create-component": "hygen component with-prompt"},
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
@@ -6,6 +7,7 @@
     "@types/react-dom": "16.9.8",
     "commitlint": "17.7.1",
     "commitlint-config-gitmoji": "2.3.1",
+    "hygen": "^6.2.11",
     "lerna": "6.0.0",
     "react": "16.14.0",
     "react-dom": "16.14.0",
