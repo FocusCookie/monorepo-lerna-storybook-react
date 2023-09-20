@@ -25,6 +25,12 @@ export default {
       </>
     ),
   },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/VwIAD7kNluCAsDEnfI4DPA/HQ-Revenue---Design-System-Revamp?type=design&node-id=2412%3A76168&mode=design&t=BaIbrVL4SQDpeQL0-1",
+    },
+  },
 } as ComponentMeta<typeof ButtonList>;
 
 const Template: ComponentStory<typeof ButtonList> = (args) => (
