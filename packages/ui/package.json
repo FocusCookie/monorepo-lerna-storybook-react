@@ -22,6 +22,7 @@
     "url": "git+https://github.com/FocusCookie/monorepo-lerna-storybook-react.git"
   },
   "scripts": {
+    "snapshots": "jest",
     "test": "npm run build-storybook && jest",
     "build": "NODE_ENV=production webpack --config webpack.config.js --color --progress",
     "storybook": "start-storybook -p 6006",
@@ -63,7 +64,7 @@
     "jest": "29.0.0",
     "jest-cli": "29.0.0",
     "jest-environment-jsdom": "29.7.0",
-    "puppeteer": "3.0.0",
+    "puppeteer": "3.3.0",
     "react-test-renderer": "16.14.0"
   }
 }
