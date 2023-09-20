@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "webpack serve",
-    "test-storybook": "test-storybook --browsers firefox chromium webkit",
+    "test-snapshots": "test-storybook --browsers firefox chromium webkit",
+    "update-snapshots": "test-storybook --updateSnapshot",
     "build": "NODE_ENV=production webpack --config webpack.config.js --color --progress",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -61,6 +62,7 @@
     "jest-cli": "29.0.0",
     "jest-environment-jsdom": "29.7.0",
     "jest-image-snapshot": "6.2.0",
-    "react-test-renderer": "16.14.0"
+    "react-test-renderer": "16.14.0",
+    "webpack-dev-server": "4.15.1"
   }
 }
