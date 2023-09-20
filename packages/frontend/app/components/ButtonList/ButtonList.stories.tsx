@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Button } from "@lueddy/ui";
 
-import ButtonList from "./ButtonList";
+import ButtonList from "./index";
 
 export default {
   title: "Components/ButtonList",

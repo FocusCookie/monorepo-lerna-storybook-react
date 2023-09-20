@@ -5,8 +5,8 @@ export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-const Button = ({ children, ...props }: Props) => {
+const ButtonList = ({ children, ...props }: Props) => {
   return <Wrapper {...props}>{children}</Wrapper>;
 };
 
-export default Button;
+export default ButtonList;
