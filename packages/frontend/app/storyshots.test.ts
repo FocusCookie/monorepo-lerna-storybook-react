@@ -15,19 +15,21 @@ const STATIC_STORYBOOK_PATH = path.resolve(__dirname, "../storybook-static");
   };
 }; */
 
-const beforeScreenshot = () => {
+//@ts-ignore
+const beforeScreenshot = (page, { context: { kind, story }, url }) => {
   return new Promise<void>((resolve) =>
     setTimeout(() => {
       resolve();
-    }, 500)
+    }, 600)
   );
 };
 
-const afterScreenshot = () => {
+//@ts-ignore
+const afterScreenshot = ({ image, context }) => {
   return new Promise<void>((resolve) =>
     setTimeout(() => {
       resolve();
-    }, 500)
+    }, 600)
   );
 };
 
