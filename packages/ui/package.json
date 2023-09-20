@@ -22,9 +22,10 @@
     "url": "git+https://github.com/FocusCookie/monorepo-lerna-storybook-react.git"
   },
   "scripts": {
+    "code-coverage": "npx nyc report --reporter=lcov -t coverage/storybook --report-dir coverage/storybook",
     "postinstall": "npm run build",
-    "test-snapshots": "test-storybook --url http://127.0.0.1:6006 --browsers firefox chromium webkit",
-    "update-snapshots": "test-storybook --updateSnapshot",
+    "test-snapshots": "test-storybook --coverage --url http://127.0.0.1:6006 --browsers firefox chromium webkit && npm run code-coverage",
+    "update-snapshots": "test-storybook --coverage --url http://127.0.0.1:6006 --updateSnapshot --browsers firefox chromium webkit && npm run code-coverage",
     "build": "NODE_ENV=production webpack --config webpack.config.js --color --progress",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -49,6 +50,7 @@
     "@babel/core": "7.22.17",
     "@storybook/addon-actions": "6.5.9",
     "@storybook/addon-console": "1.2.2",
+    "@storybook/addon-coverage": "0.0.9",
     "@storybook/addon-docs": "6.5.9",
     "@storybook/addon-essentials": "6.5.9",
     "@storybook/addon-interactions": "6.5.9",
@@ -61,6 +63,7 @@
     "@types/jest-image-snapshot": "6.2.1",
     "babel-loader": "8.3.0",
     "babel-plugin-dynamic-import-node": "2.3.3",
+    "babel-plugin-istanbul": "6.1.1",
     "jest": "29.0.0",
     "jest-cli": "29.0.0",
     "jest-environment-jsdom": "29.7.0",
