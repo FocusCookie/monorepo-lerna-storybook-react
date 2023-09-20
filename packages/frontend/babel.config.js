@@ -21,6 +21,7 @@ module.exports = function configureBabel(api) {
         plugins: [
           "@babel/plugin-transform-modules-commonjs",
           "dynamic-import-node",
+          "istanbul",
         ],
       },
     },
