@@ -19,10 +19,10 @@
   },
   "scripts": {
     "start": "webpack serve",
-    "test-snapshots": "test-storybook --browsers firefox chromium webkit",
+    "test-snapshots": "test-storybook --url http://127.0.0.1:6007 --browsers firefox chromium webkit",
     "update-snapshots": "test-storybook --updateSnapshot",
     "build": "NODE_ENV=production webpack --config webpack.config.js --color --progress",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook"
   },
   "bugs": {
