@@ -329,6 +329,7 @@ dist
 # snapshot testing
 .__image_snapshots__/
 __image_snapshots__/
+__snapshots__/
 
 ### macOS template
 # General
@@ -459,3 +460,4 @@ __image_snapshots__/
 .npmrc
 
 storybook-static
+
