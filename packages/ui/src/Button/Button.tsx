@@ -36,10 +36,12 @@ const Button = ({
         padding: size === "base" ? "0.5rem 0.25rem" : "1rem 0.5rem",
         fontSize: size === "base" ? "1rem" : "1.5rem",
         border: "none",
+        cursor: "pointer",
+        borderRadius: "0.5rem",
       }}
       {...props}
     >
-      {loading ? "loading..." : children} <span>right</span>
+      {loading ? "loading..." : children}
     </button>
   );
 };
