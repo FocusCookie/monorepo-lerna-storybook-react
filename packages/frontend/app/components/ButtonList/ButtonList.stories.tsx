@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button } from "@lueddy/ui";
+import { within, userEvent } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 import ButtonList from "./index";
 
@@ -8,22 +9,24 @@ export default {
   title: "Components/ButtonList",
   component: ButtonList,
   args: {
-    children: (
-      <>
-        <Button size="base" variant="primary">
-          button
-        </Button>
-        <Button size="large" variant="primary">
-          button
-        </Button>
-        <Button size="base" variant="secondary">
-          button
-        </Button>
-        <Button size="large" variant="secondary">
-          button
-        </Button>
-      </>
-    ),
+    buttons: [
+      {
+        label: "one",
+        variant: "primary",
+      },
+      {
+        label: "two",
+        variant: "secondary",
+      },
+      {
+        label: "three",
+        variant: "primary",
+      },
+      {
+        label: "🍍",
+        variant: "secondary",
+      },
+    ],
   },
   parameters: {
     design: {
@@ -39,3 +42,14 @@ const Template: ComponentStory<typeof ButtonList> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const FilteredForO = Template.bind({});
+FilteredForO.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await expect(canvas.getAllByRole("button").length).toBe(4);
+
+  await userEvent.type(canvas.getByTestId("search"), "o");
+
+  await expect(canvas.getAllByRole("button").length).toBe(2);
+};

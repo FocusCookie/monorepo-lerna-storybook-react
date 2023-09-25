@@ -1,7 +1,7 @@
 {
   "scripts": {
     "create-component": "hygen component with-prompt",
-    "build-root-storybooks": "lerna run build-storybook && npx ts-node ./utils/storybooks/storybooks.ts"
+    "build-storybooks": "lerna bootstrap && lerna run build-storybook && npx ts-node ./utils/storybooks/storybooks.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
