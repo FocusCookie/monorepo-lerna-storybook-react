@@ -460,3 +460,4 @@ __snapshots__/
 .npmrc
 
 storybook-static
+/storybooks/
