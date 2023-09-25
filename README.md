@@ -8,6 +8,11 @@ A small POC to test how to use Storybook in a Lerna Monorepo Project
 - playwright needs to be installed: `npm init playwright@latest`
 - each package has a uniqe storybook port which is configured in the package.json of the package
 
+# Root storybook
+
+To build a static root storybook page from where all storybooks of all packages are reachable, run it in the root
+`npm run build-storybooks`
+
 # Create new components
 
 Use the in the root of the project `npm run create-component` and follow the steps.
