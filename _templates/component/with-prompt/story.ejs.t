@@ -11,7 +11,13 @@ export default {
   args: {
     // global args for all stories
   },
-  decorators: []
+  parameters: { <%- !!figma ? `
+  decorators: [],
+    design: {
+      type: "figma",
+      url: "${figma}",
+    },` : "" %>
+  },
 } as ComponentMeta<typeof <%= component %>>;
 
 const Template: ComponentStory<typeof <%= component %>> = (args) => (

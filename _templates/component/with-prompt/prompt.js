@@ -34,4 +34,9 @@ module.exports = [
     type: "input",
     name: "component",
   },
+  {
+    message: "Optional: Figma Design Link for the component.",
+    type: "input",
+    name: "figma",
+  },
 ];
