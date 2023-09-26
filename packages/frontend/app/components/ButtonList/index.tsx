@@ -2,7 +2,7 @@ import { Button } from "@lueddy/ui";
 import React, { ButtonHTMLAttributes, useState } from "react";
 import { Input, Label, Wrapper } from "./styled";
 
-type ButtonType = {
+export type ButtonType = {
   label: string;
   variant: "primary" | "secondary";
   onClick?: () => void;

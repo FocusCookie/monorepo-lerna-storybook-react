@@ -1,23 +1,31 @@
 import React from "react";
-import ButtonList from "./components/ButtonList/index";
-import { Button } from "@lueddy/ui";
+import ButtonList, { ButtonType } from "./components/ButtonList/index";
+
+const buttons: ButtonType[] = [
+  {
+    label: "one",
+    variant: "primary",
+  },
+  {
+    label: "two",
+    variant: "secondary",
+  },
+  {
+    label: "three",
+    variant: "primary",
+  },
+  {
+    label: "🍍",
+    variant: "secondary",
+  },
+];
 
 const App = () => {
   return (
-    <ButtonList>
-      <Button size="base" variant="primary">
-        button
-      </Button>
-      <Button size="large" variant="primary">
-        button
-      </Button>
-      <Button size="base" variant="secondary">
-        button
-      </Button>
-      <Button size="large" variant="secondary">
-        button
-      </Button>
-    </ButtonList>
+    <ButtonList
+      buttons={buttons}
+      onButtonClick={(label: string) => alert(label)}
+    />
   );
 };
 
