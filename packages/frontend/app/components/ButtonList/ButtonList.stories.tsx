@@ -43,8 +43,12 @@ const Template: ComponentStory<typeof ButtonList> = (args) => (
 export const Default = Template.bind({});
 Default.args = {};
 
-export const FilteredForO = Template.bind({});
-FilteredForO.play = async ({ canvasElement }) => {
+export const Hovered = Template.bind({});
+Hovered.args = {};
+Hovered.parameters = { pseudo: { hover: true } };
+
+export const FilteredForOne = Template.bind({});
+FilteredForOne.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   await expect(canvas.getAllByRole("button").length).toBe(4);
@@ -52,4 +56,11 @@ FilteredForO.play = async ({ canvasElement }) => {
   await userEvent.type(canvas.getByTestId("search"), "o");
 
   await expect(canvas.getAllByRole("button").length).toBe(2);
+  await expect(canvas.getAllByRole("button")[0].innerText).toBe("one");
+  await expect(canvas.getAllByRole("button")[1].innerText).toBe("two");
+
+  await userEvent.type(canvas.getByTestId("search"), "ne");
+
+  await expect(canvas.getAllByRole("button").length).toBe(1);
+  await expect(canvas.getByRole("button").innerText).toBe("one");
 };

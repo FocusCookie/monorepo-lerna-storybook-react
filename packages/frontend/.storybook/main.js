@@ -6,6 +6,7 @@ module.exports = {
     "@storybook/addon-interactions",
     "storybook-addon-designs",
     "@storybook/addon-coverage",
+    "storybook-addon-pseudo-states",
   ],
   features: {
     interactionsDebugger: true, // 👈 Enable playback controls
