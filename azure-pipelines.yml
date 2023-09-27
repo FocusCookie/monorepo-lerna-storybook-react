@@ -7,8 +7,16 @@ trigger: none
 
 steps:
   - task: Docker@2
-    displayName: Build an image
+    displayName: 🛠️ Build an image
     inputs:
       command: build
-      dockerFile: '$(Build.SourcesDirectory)/Dockerfile'
+      dockerFile: "$(Build.SourcesDirectory)/Dockerfile"
 
+  - script: npm install
+    displayName: "⛓️ Install dependencies"
+
+  - script: lerna bootstrap
+    displayName: "🥾 Lerna bootstrap"
+
+  - script: npm run screenshots:test
+    displayName: "📸 Screenshot tests"
