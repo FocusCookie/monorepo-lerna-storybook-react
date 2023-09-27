@@ -76,7 +76,13 @@ RUN curl -sS https://bootstrap.pypa.io/pip/3.5/get-pip.py | sudo python3
 RUN wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 RUN dpkg -i packages-microsoft-prod.deb
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-RUN echo "Install dependencies"
+RUN echo "Ubuntu: Install nodejs"
 RUN sudo apt-get install -y nodejs
 RUN echo "Install lerna"
 RUN sudo npm i lerna@6.0.0 -g
+RUN echo "⛓️ Install npm dependencies"
+RUN sudo npm install
+RUN echo "🥾 lerna bootstrap"
+RUN sudo lerna bootstrap
+RUN echo "📸 Screenshot tests"
+RUN sudo npm run screenshots:test
