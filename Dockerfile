@@ -87,9 +87,7 @@ RUN echo "Install lerna"
 RUN sudo npm i lerna@6.0.0 -g
 RUN echo "👯‍♀️ clone repository"
 RUN git clone https://github.com/FocusCookie/monorepo-lerna-storybook-react.git /home/repo
-RUN cd /home/repo
-RUN pwd
-RUN ls -l
+WORKDIR /home/repo
 RUN echo "⛓️ Install npm dependencies"
 RUN npm install
 RUN echo "🥾 lerna bootstrap"
