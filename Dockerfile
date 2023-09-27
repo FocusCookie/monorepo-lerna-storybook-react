@@ -79,4 +79,4 @@ RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 RUN echo "Install dependencies"
 RUN sudo apt-get install -y nodejs
 RUN echo "Install lerna"
-RUN sudo npm i lerna -g
+RUN sudo npm i lerna@6.0.0 -g
