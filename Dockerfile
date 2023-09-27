@@ -93,7 +93,3 @@ RUN echo "Install dependencies"
 RUN sudo apt-get install -y nodejs
 RUN echo "Install lerna"
 RUN sudo npm i lerna -g
-RUN echo "Lerna bootstrap"
-RUN sudo lerna bootstrap
-RUN echo "Run screenshot tests"
-RUN sudo lerna run screenshots:test
