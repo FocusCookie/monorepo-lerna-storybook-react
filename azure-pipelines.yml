@@ -12,11 +12,11 @@ steps:
       command: build
       dockerFile: "$(Build.SourcesDirectory)/Dockerfile"
 
-  - script: lerna bootstrap
-    displayName: "🥾 Lerna bootstrap"
-
   - script: npm install
     displayName: "⛓️ Install dependencies"
+
+  - script: lerna bootstrap
+    displayName: "🥾 Lerna bootstrap"
 
   - script: npm run screenshots:test
     displayName: "📸 Screenshot tests"
