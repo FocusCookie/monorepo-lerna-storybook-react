@@ -70,7 +70,12 @@ RUN add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
        $(lsb_release -cs) \
        stable"
-RUN sudo apt-get install docker-compose
+#RUN apt-cache madison docker-ce
+RUN apt-get update && apt-get install docker-ce="5:19.03.13~3-0~ubuntu-focal" docker-ce-cli="5:19.03.13~3-0~ubuntu-focal" containerd.io -y
+RUN curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
+RUN ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
 RUN curl -sL https://sentry.io/get-cli/ | bash
 RUN curl -sS https://bootstrap.pypa.io/pip/3.5/get-pip.py | sudo python3
 RUN wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
