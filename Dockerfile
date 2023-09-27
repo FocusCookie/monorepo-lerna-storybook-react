@@ -86,11 +86,11 @@ RUN sudo apt-get install -y nodejs
 RUN echo "Install lerna"
 RUN sudo npm i lerna@6.0.0 -g
 RUN echo "👯‍♀️ clone repository"
-RUN sudo git clone https://github.com/FocusCookie/monorepo-lerna-storybook-react.git ./repo
-RUN sudo cd repo/
+RUN git clone https://github.com/FocusCookie/monorepo-lerna-storybook-react.git ./repo
+RUN cd repo/
 RUN echo "⛓️ Install npm dependencies"
-RUN sudo npm install
+RUN npm install
 RUN echo "🥾 lerna bootstrap"
-RUN sudo lerna bootstrap
+RUN lerna bootstrap
 RUN echo "📸 Screenshot tests"
-RUN sudo npm run screenshots:test
+RUN npm run screenshots:test
