@@ -22,11 +22,6 @@ export const Wrapper = styled.div<Props>`
   width: fit-content;
   height: fit-content;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-  &:hover,
-  &:focus {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
 `;
 
 export const Label = styled.label<Props>`
@@ -44,10 +39,6 @@ export const Input = styled.input<Props>`
   border: 1px solid lightslategrey;
   padding: 0.5rem;
   border-radius: 0.25rem;
-
-  &:hover {
-    outline-color: slategrey;
-  }
 
   &:focus {
     outline-color: hotpink;
