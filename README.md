@@ -61,3 +61,17 @@ Default.paramters = {
     },
   }
 ```
+# Updating screenshots on a linux-based system
+As the app is eventually tested and deployed in a Linux environment, we need to update the screenshots in the same platform
+to do that, first make sure to:
+- run `npm install` on your own local machine
+- run `lerna bootstrap` on your own local machine
+
+then you can build the Dockerfile:
+`docker build -t screenshot-update`
+and to save the screenshots, run:
+`docker run --rm --network host -v $(pwd):/work/ -w /work/ -it screenshot-update /bin/bash` (pwd would evaluate to your current working directory, so make sure you are at the root of the application directory)
+Now you are connected to the docker container, to save the screenshots, run:
+`node_modules/.bin/lerna run test:screenshots:update`
+if you wish to test it as well:
+`node_modules/.bin/lerna run test:screenshots`
