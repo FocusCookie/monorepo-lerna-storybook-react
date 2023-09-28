@@ -5,9 +5,22 @@
 
 trigger: none
 
+pool: staging-v4-frontend
+
 steps:
-  - task: Docker@2
-    displayName: 🛠️ Build an image
+  - checkout: self
+    persistCredentials: true
+
+  - task: NodeTool@0
     inputs:
-      command: build
-      dockerFile: "$(Build.SourcesDirectory)/Dockerfile"
+      versionSpec: "14.x"
+    displayName: "Install node"
+
+  - script: npm install
+    displayName: "⛓️ Install npm dependencies"
+
+  - script: lerna bootstrap
+    displayName: "🥾 lerna bootstrap"
+
+  - script: lerna run test:screenshots
+    displayName: "📸 Screenshot tests"
