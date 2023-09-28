@@ -93,4 +93,4 @@ RUN npm install
 RUN echo "🥾 lerna bootstrap"
 RUN lerna bootstrap
 RUN echo "📸 Screenshot tests"
-RUN npm run screenshots:test
+RUN lerna run screenshots:test
