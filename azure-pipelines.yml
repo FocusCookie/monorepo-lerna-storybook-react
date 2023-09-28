@@ -22,5 +22,5 @@ steps:
   - script: lerna bootstrap
     displayName: "🥾 lerna bootstrap"
 
-  - script: lerna run test:screenshots
+  - script: lerna run --stream test:screenshots
     displayName: "📸 Screenshot tests"
