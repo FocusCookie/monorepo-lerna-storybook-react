@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:v1.34.0-jammy
+FROM mcr.microsoft.com/playwright:v1.38.0-jammy
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt purge nodejs -y

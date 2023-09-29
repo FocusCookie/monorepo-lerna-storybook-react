@@ -19,8 +19,8 @@ steps:
   - script: npm install
     displayName: "⛓️ Install npm dependencies"
 
-  - script: lerna bootstrap
+  - script: npm run bootstrap
     displayName: "🥾 lerna bootstrap"
 
-  - script: lerna run --stream test:screenshots
+  - script: npm run test:screenshots
     displayName: "📸 Screenshot tests"
