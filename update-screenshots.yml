@@ -25,12 +25,13 @@ steps:
 - script: lerna run --stream test:screenshots:update
   displayName: "📸 Update Screenshots"
 
+## packages is where the snapshots/screenshots are
 - script: |
     git config --global user.email "info@hqplus.de"
     git config --global user.name "Azure DevOps Pipeline"
 
-    git add .
+    git add packages
     git commit -m "save screenshots"
-    git push origin HEAD:feature/update-screenshots-pipeline
-  displayName: 'Commit and Push New Image'
+    git push origin HEAD:$(Build.SourceBranchName)
+  displayName: 'Commit and Push New screenshots'
   workingDirectory: $(Build.SourcesDirectory)
