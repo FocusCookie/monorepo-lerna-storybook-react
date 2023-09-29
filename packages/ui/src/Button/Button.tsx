@@ -34,7 +34,7 @@ const Button = ({
         opacity: disabled ? 0.75 : 1,
         backgroundColor: variant === "primary" ? "hotpink" : "skyblue",
         padding: size === "base" ? "0.5rem 0.25rem" : "1rem 0.5rem",
-        fontSize: size === "base" ? "1rem" : "1.5rem",
+        fontSize: size === "base" ? "1.25rem" : "1.5rem",
         border: "none",
         cursor: "pointer",
         borderRadius: "0.5rem",
