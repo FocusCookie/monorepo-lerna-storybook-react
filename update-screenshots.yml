@@ -1,0 +1,37 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+
+pool: staging-v4-frontend
+
+steps:
+- checkout: self
+  persistCredentials: true
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: "14.x"
+  displayName: "👷‍♂️ Install node"
+
+- script: npm install
+  displayName: "⛓️ Install npm dependencies"
+
+- script: lerna bootstrap
+  displayName: "🥾 lerna bootstrap"
+
+- script: lerna run --stream test:screenshots:update
+  displayName: "📸 Update Screenshots"
+
+## packages is where the snapshots/screenshots are
+- script: |
+    git config --global user.email "info@hqplus.de"
+    git config --global user.name "Azure DevOps Pipeline"
+
+    git add packages
+    git commit -m "save screenshots"
+    git push origin HEAD:$(Build.SourceBranchName)
+  displayName: 'Commit and Push New screenshots'
+  workingDirectory: $(Build.SourcesDirectory)
