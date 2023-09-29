@@ -7,6 +7,9 @@ trigger: none
 
 pool: staging-v4-frontend
 
+variables:
+  branchName: $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
+
 steps:
 - checkout: self
   persistCredentials: true
@@ -32,6 +35,6 @@ steps:
 
     git add packages
     git commit -m "save screenshots"
-    git push origin HEAD:$(Build.SourceBranchName)
+    git push origin HEAD:$(branchName)
   displayName: 'Commit and Push New screenshots'
   workingDirectory: $(Build.SourcesDirectory)
