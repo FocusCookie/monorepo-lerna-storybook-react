@@ -11,30 +11,30 @@ variables:
   branchName: $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
 
 steps:
-- checkout: self
-  persistCredentials: true
+  - checkout: self
+    persistCredentials: true
 
-- task: NodeTool@0
-  inputs:
-    versionSpec: "14.x"
-  displayName: "👷‍♂️ Install node"
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "14.x"
+    displayName: "👷‍♂️ Install node"
 
-- script: npm install
-  displayName: "⛓️ Install npm dependencies"
+  - script: npm install
+    displayName: "⛓️ Install npm dependencies"
 
-- script: lerna bootstrap
-  displayName: "🥾 lerna bootstrap"
+  - script: lerna bootstrap
+    displayName: "🥾 lerna bootstrap"
 
-- script: lerna run --stream test:screenshots:update
-  displayName: "📸 Update Screenshots"
+  - script: lerna run --stream test:screenshots:update
+    displayName: "📸 Update Screenshots"
 
-## packages is where the snapshots/screenshots are
-- script: |
-    git config --global user.email "info@hqplus.de"
-    git config --global user.name "Azure DevOps Pipeline"
+  ## packages is where the snapshots/screenshots are
+  - script: |
+      git config --global user.email "info@hqplus.de"
+      git config --global user.name "Azure DevOps Pipeline"
 
-    git add packages
-    git commit -m "save screenshots"
-    git push origin HEAD:$(branchName)
-  displayName: 'Commit and Push New screenshots'
-  workingDirectory: $(Build.SourcesDirectory)
+      git add packages
+      git commit -m "save screenshots"
+      git push origin HEAD:$(branchName)
+    displayName: "Commit and Push New screenshots"
+    workingDirectory: $(Build.SourcesDirectory)
