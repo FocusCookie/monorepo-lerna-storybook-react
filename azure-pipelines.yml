@@ -25,26 +25,26 @@ steps:
   - script: npm run test:screenshots
     displayName: "📸 Screenshot tests"
 
-  - powershell: |
-      $packagesDirectory = "$(System.DefaultWorkingDirectory)\packages"
-      $packages = Get-ChildItem -Path $packagesDirectory -Directory
+  - script: |
+      packagesDirectory="$(System.DefaultWorkingDirectory)/packages"
+      packages=($(find "$packagesDirectory" -maxdepth 1 -type d))
 
-      foreach ($package in $packages) {
-        $snapshotsPath = Join-Path -Path $package.FullName -ChildPath "__snapshots__"
-        $diffOutputPath = Join-Path -Path $package.FullName -ChildPath "__diff_output__"
+      for package in "${packages[@]}"; do
+          snapshotsPath="$package/__snapshots__"
+          diffOutputPath="$package/__snapshots__/__diff_output__"
 
-        if (Test-Path -Path $snapshotsPath -and Test-Path -Path $diffOutputPath) {
-          Write-Host "🚨 Found snapshot differences in $($package.Name)."
+          if [ -d "$snapshotsPath" ] && [ -d "$diffOutputPath" ]; then
+              echo "🚨 Found snapshot differences in $(basename $package)."
 
-          git config --global user.email "info@hqplus.de"
-          git config --global user.name "Azure DevOps Pipeline"
+              git config --global user.email "info@hqplus.de"
+              git config --global user.name "Azure DevOps Pipeline"
 
-          git add packages
-          git commit -m "test: screenshots: $($package.Name) differences"
-          git push origin HEAD:$(branchName)
-        } else {
-          Write-Host "✅ No snapshot differences detected in $($package.Name)."
-        }
-      }
+              git add packages
+              git commit -m "test: screenshots: $(basename $package) differences"
+              git push origin HEAD:$branchName
+          else
+              echo "✅ No snapshot differences detected in $(basename $package)."
+          fi
+      done
     displayName: "Check for snapshot differences in packages"
     workingDirectory: $(Build.SourcesDirectory)
