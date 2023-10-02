@@ -24,3 +24,27 @@ steps:
 
   - script: npm run test:screenshots
     displayName: "📸 Screenshot tests"
+
+  - powershell: |
+      $packagesDirectory = "$(System.DefaultWorkingDirectory)\packages"
+      $packages = Get-ChildItem -Path $packagesDirectory -Directory
+
+      foreach ($package in $packages) {
+        $snapshotsPath = Join-Path -Path $package.FullName -ChildPath "__snapshots__"
+        $diffOutputPath = Join-Path -Path $package.FullName -ChildPath "__diff_output__"
+
+        if (Test-Path -Path $snapshotsPath -and Test-Path -Path $diffOutputPath) {
+          Write-Host "🚨 Found snapshot differences in $($package.Name)."
+
+          git config --global user.email "info@hqplus.de"
+          git config --global user.name "Azure DevOps Pipeline"
+
+          git add packages
+          git commit -m "test: screenshots: $($package.Name) differences"
+          git push origin HEAD:$(branchName)
+        } else {
+          Write-Host "✅ No snapshot differences detected in $($package.Name)."
+        }
+      }
+    displayName: "Check for snapshot differences in packages"
+    workingDirectory: $(Build.SourcesDirectory)
